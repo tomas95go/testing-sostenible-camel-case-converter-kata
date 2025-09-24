@@ -25,4 +25,10 @@ describe('the camel case converter', () => {
         const expected = 'Foo_Bar-Foo -> FooBarFoo';
         expect(result).toBe(expected);
     });
+
+    it('should convert a word to PascalCase when its first letter is lower case', () => {
+        const result = camelCaseConverter('foo');
+        const expected = 'foo -> Foo';
+        expect(result).toBe(expected);
+    });
 });

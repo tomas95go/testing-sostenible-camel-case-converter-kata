@@ -39,4 +39,5 @@ export function camelCaseConverter(word: string) {
         return `${word} -> ${word}`;
     }
 
+    //return `${word} -> ${word[0].toUpperCase()}`;
 }
