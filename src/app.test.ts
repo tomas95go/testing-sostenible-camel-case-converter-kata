@@ -31,4 +31,10 @@ describe('the camel case converter', () => {
         const expected = 'foo -> Foo';
         expect(result).toBe(expected);
     });
+
+    it('should convert words to PascalCase when it is separated by underscore or hyphen and their first letter is lower case', () => {
+        const result = camelCaseConverter('foo_bar foo-bar');
+        const expected = 'foo_bar foo-bar -> FooBarFooBar';
+        expect(result).toBe(expected);
+    });
 });
