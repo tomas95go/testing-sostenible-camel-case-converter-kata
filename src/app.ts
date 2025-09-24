@@ -1,5 +1,6 @@
 export function camelCaseConverter(word: string) {
-    if(word.length === 0) {
+    const noWordIsGiven = word.length === 0;
+    if(noWordIsGiven) {
         return '->';
     }
 }
