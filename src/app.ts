@@ -13,6 +13,7 @@ export function camelCaseConverter(word: string) {
     const wordIncludesOnlyUnderscores = wordIncludesUnderscores && !wordIncludesDashes && !wordIncludesSpaces;
 
     const wordIncludesUnderscoresAndDashes = wordIncludesDashes && wordIncludesUnderscores;
+    const wordDoesNotContainSymbols = !wordIncludesSpaces && !wordIncludesUnderscores && !wordIncludesDashes;
 
     let splittedWord: string[];
 
@@ -24,9 +25,13 @@ export function camelCaseConverter(word: string) {
         splittedWord = word.split('_').join('').split('-');
     }
 
-    if(splittedWord.length > 1) {
+    if(splittedWord && splittedWord.length > 1) {
         const joinedWord = splittedWord.join('');
         return `${word} -> ${joinedWord}`;
+    }
+
+    if(wordDoesNotContainSymbols) {
+        splittedWord = word.split('');
     }
 
     const givenWordFirstLetter = splittedWord[0];
@@ -39,5 +44,5 @@ export function camelCaseConverter(word: string) {
         return `${word} -> ${word}`;
     }
 
-    //return `${word} -> ${word[0].toUpperCase()}`;
+    return `${word} -> ${splittedWord.map((letter, position) => position === 0 ? letter.toUpperCase() : letter).join('')}`;
 }
