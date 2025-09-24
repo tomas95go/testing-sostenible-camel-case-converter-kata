@@ -1,3 +1,5 @@
-export function sum(a: number, b: number): number {
-    return a + b;
+export function camelCaseConverter(word: string) {
+    if(word.length === 0) {
+        return '';
+    }
 }

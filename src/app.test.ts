@@ -1,10 +1,10 @@
 import { describe, expect, it } from "@jest/globals";
-import { sum } from "./app";
+import { camelCaseConverter } from "./app";
 
-describe('the app module', () => {
-    it('should add two numbers', () => {
-       const result = sum(1,2);
-        const expected = 3;
-        expect(result).toBe(expected);
+describe('the camel case converter', () => {
+    it('should return an empty string when no word is given', () => {
+       const result = camelCaseConverter('');
+       const expected = '->';
+       expect(result).toBe(expected);
     });
 });
