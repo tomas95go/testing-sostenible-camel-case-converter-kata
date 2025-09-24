@@ -22,7 +22,7 @@ describe('the camel case converter', () => {
 
     it('should convert words to PascalCase when it is separated by underscore or hyphen and their first letter is capital', () => {
         const result = camelCaseConverter('Foo_Bar-Foo');
-        const expected = 'Foo Bar -> FooBar';
+        const expected = 'Foo_Bar-Foo -> FooBarFoo';
         expect(result).toBe(expected);
     });
 });

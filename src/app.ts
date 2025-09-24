@@ -3,7 +3,26 @@ export function camelCaseConverter(word: string) {
     if(noWordIsGiven) {
         return '->';
     }
-    const splittedWord = word.split(' ');
+
+    const wordIncludesSpaces = word.includes(' ');
+    const wordIncludesUnderscores = word.includes('-');
+    const wordIncludesDashes = word.includes('-');
+
+    const wordIncludesOnlySpaces = wordIncludesSpaces && !wordIncludesUnderscores && !wordIncludesDashes;
+    const wordIncludesOnlyDashes = wordIncludesDashes && !wordIncludesUnderscores && !wordIncludesSpaces;
+    const wordIncludesOnlyUnderscores = wordIncludesUnderscores && !wordIncludesDashes && !wordIncludesSpaces;
+
+    const wordIncludesUnderscoresAndDashes = wordIncludesDashes && wordIncludesUnderscores;
+
+    let splittedWord: string[];
+
+    if(wordIncludesOnlySpaces) {
+        splittedWord = word.split(' ');
+    }
+
+    if(wordIncludesUnderscoresAndDashes) {
+        splittedWord = word.split('_').join('').split('-');
+    }
 
     if(splittedWord.length > 1) {
         const joinedWord = splittedWord.join('');
