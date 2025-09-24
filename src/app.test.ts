@@ -16,7 +16,7 @@ describe('the camel case converter', () => {
 
     it('should return same string when given 2 words that has a capital first letter', () => {
         const result = camelCaseConverter('Foo Bar');
-        const expected = 'Foo -> Foo';
+        const expected = 'Foo Bar -> FooBar';
         expect(result).toBe(expected);
     });
 });
